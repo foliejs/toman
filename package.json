@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "caporal": "^0.5.0",
+    "fs": "^0.0.1-security",
+    "mustache": "^2.3.0",
+    "path": "^0.12.7",
     "toman": "https://github.com/foliejs/folie-cli"
   }
 }

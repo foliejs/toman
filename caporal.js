@@ -2,6 +2,7 @@
 'use strict'
 
 const prog = require('caporal')
+const generate = require('./src/index')
 const Version = require('./package.json').version
 
 prog
