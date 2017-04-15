@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict'
 
 const prog = require('caporal');
