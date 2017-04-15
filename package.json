@@ -5,7 +5,7 @@
   "author": "sunnode <m18205253820@163.com>",
   "license": "ISC",
   "bin": {
-    "fly": "./caporal.js"
+    "toman": "./caporal.js"
   },
   "dependencies": {
     "caporal": "^0.5.0",
