@@ -12,6 +12,22 @@
     "fs": "^0.0.1-security",
     "mustache": "^2.3.0",
     "path": "^0.12.7",
-    "toman": "https://github.com/foliejs/folie-cli"
-  }
+    "toman": "git+https://github.com/foliejs/folie-cli.git"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foliejs/toman.git"
+  },
+  "bugs": {
+    "url": "https://github.com/foliejs/toman/issues"
+  },
+  "homepage": "https://github.com/foliejs/toman#readme",
+  "description": ""
 }
