@@ -1,11 +1,11 @@
 {
   "name": "toman",
   "version": "1.0.3",
-  "main": "caporal.js",
+  "main": "toman.js",
   "author": "sunnode <m18205253820@163.com>",
   "license": "ISC",
   "bin": {
-    "toman": "./caporal.js"
+    "toman": "./toman.js"
   },
   "dependencies": {
     "caporal": "^0.5.0",

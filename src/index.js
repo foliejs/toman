@@ -7,17 +7,33 @@ const path = require('path')
 /**
  * Generates the project files
  */
-function generate ({spec = 'spec', name: name}) {
-  createProjectDirectory(name)
-  writeFileSync('server.mustache', spec, name, 'server.js')
-  writeFileSync('package.mustache', spec, name, 'package.json')
+function generate (spec) {
+  let directory = path.join(process.cwd(), spec.name)
+  let testDirectory = path.join(directory, 'test')
+  let configDirectory = path.join(directory, 'config')
+  let pm2Directory = path.join(directory, 'pm2')
+  createProjectDirectory(directory)
+  createProjectDirectory(testDirectory)
+  createProjectDirectory(configDirectory)
+  createProjectDirectory(pm2Directory)
+  spec['directory'] = directory
+  writeFileSync('app.mustache', spec, 'app.js')
+  writeFileSync('package.mustache', spec, 'package.json')
+  writeFileSync('gitigonre.mustache', spec, '.gitignore')
+  writeFileSync('ci.mustache', spec, '.gitlab-ci.yml')
+  writeFileSync('skyfile.mustache', spec, 'skyfile.js')
+  spec['directory'] = testDirectory
+  writeFileSync('test.mustache', spec, 'index.test.js')
+  spec['directory'] = pm2Directory
+  writeFileSync('21.mustache', spec, '21.json')
+  spec['directory'] = configDirectory
+  writeFileSync('default.mustache', spec, 'default.json')
 }
 
 /**
  * Creates the output project directory
  */
-function createProjectDirectory (content) {
-  let directory = path.join(process.cwd(), content)
+function createProjectDirectory (directory) {
   if (!fs.existsSync(directory)) {
     fs.mkdirSync(directory)
   }
@@ -26,10 +42,9 @@ function createProjectDirectory (content) {
 /**
  * Writes the file to the output folder
  */
-function writeFileSync (templateName, templateOption, name, filename) {
-  let directory = path.join(process.cwd(), name)
+function writeFileSync (templateName, templateOption, filename) {
   let templateString = fs.readFileSync(path.join(__dirname, '/templates/' + templateName), 'utf8')
-  fs.writeFileSync(path.join(directory, filename), Mustache.render(templateString, templateOption))
+  fs.writeFileSync(path.join(templateOption.directory, filename), Mustache.render(templateString, templateOption))
 }
 
 module.exports = generate

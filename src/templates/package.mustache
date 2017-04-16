@@ -1,7 +1,7 @@
 {
-    "name": "tool-api",
+    "name": "{{name}}",
     "version": "1.0.0",
-    "description": "Tool generated API",
+    "description": "{{name}} API Service",
     "main": "index.js",
     "scripts": {
     "start": "node server.js"
@@ -17,5 +17,11 @@
     {{{/isProxyEndpoints}}}
     "express": "^4.13.4",
     "body-parser": "1.15.2"
+    },
+    "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul-harmony": "^0.3.16",
+    "mocha": "^3.2.0",
+    "should": "^11.1.2"
     }
 }
