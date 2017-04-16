@@ -18,6 +18,7 @@ prog
   .command('generate', 'generate framework')
   .help(`alias g`)
   .alias('g')
+  .option('--name <name>', '项目名称')
   .argument('<project>', '项目框架', (opt) => {
     let supportWork = ['koa1', 'koa2', 'sails', 'express', 'restify', 'strongLoop']
     if (supportWork.includes(opt) === false) {
@@ -25,11 +26,11 @@ prog
     }
     return opt.toUpperCase()
   })
+
   .action((args, options, logger) => {
+    logger.log(args)
     logger.log(`您已选择框架${options.project},请耐心等待`)
-  })
-  .complete((args, options, logger) => {
-    logger.log('done')
+    generate({name: args.name})
   })
 
 prog.parse(process.argv)

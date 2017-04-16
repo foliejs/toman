@@ -1,48 +1,46 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var http = require('http');
-var server = http.createServer(app);
+const express = require('express')
+const bodyParser = require('body-parser')
+const app = express()
+const http = require('http')
+const server = http.createServer(app)
 {{#isSocketEndpointAvailable}}
-    var io = require('socket.io')(server);
+    let io = require('socket.io')(server)
 {{/isSocketEndpointAvailable}}
 {{#isProxyEndpoints}}
-    var proxy = require('express-http-proxy');
+    let proxy = require('express-http-proxy')
 {{/isProxyEndpoints}}
-var port = 5555;
+let port = 5555
 
-app.get('/status', function internalStaus(req, res){
-res.send('API server running.');
-});
+app.get('/status', (req, res) => res.send('API server running.'))
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
-app.options("/*", function(req, res, next){
-res.header('Access-Control-Allow-Origin', '*');
-res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-res.send(200);
-});
+app.options('/*', (req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    res.send(200)
+})
 
 {{#endpoints}}
-    app.{{httpMethod}}('{{{url}}}', function(req, res){
+    app.{{httpMethod}}('{{{url}}}', (req, res) => {
     {{#headers}}
-        res.set('{{key}}', '{{value}}');
+        res.set('{{key}}', '{{value}}')
     {{/headers}}
-    res.set('Content-Type', '{{{response.contentType.contentType}}}');
-    res.status({{response.responseCode}});
+    res.set('Content-Type', '{{{response.contentType.contentType}}}')
+    res.status({{response.responseCode}})
     {{#response.contentType.eval}}
         {{{response.content}}}
     {{/response.contentType.eval}}
     {{^response.contentType.eval}}
-        res.send('{{{response.content}}}');
+        res.send('{{{response.content}}}')
     {{/response.contentType.eval}}
-    });
+    })
 {{/endpoints}}
 
 {{#isSocketEndpointAvailable}}
-    io.on('connection', function(socket) {
+    io.on('connection', (socket) => {
     {{#socketEndpoints}}
         socket.on('{{eventName}}', function(data) {
         {{#isEmitSelf}}
@@ -61,12 +59,10 @@ res.send(200);
 
 {{#proxyEndpoints}}
     app.use('{{{url}}}', proxy('{{{urlToProxy}}}', {
-    forwardPath: function(req, res) {
-    return require('url').parse(req.url).path;
+    forwardPath: (req, res) => {
+    return require('url').parse(req.url).path
     }
-    }));
+    }))
 {{/proxyEndpoints}}
 
-server.listen(port, function () {
-console.log('API is available at: http://localhost:' + port);
-});
+server.listen(port, () => console.log('API is available at: http://localhost:' + port))

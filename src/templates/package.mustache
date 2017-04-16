@@ -1,21 +1,21 @@
 {
-"name": "atmo-api",
-"version": "1.0.0",
-"description": "Atmo generated API",
-"main": "index.js",
-"scripts": {
-"start": "node server.js"
-},
-"author": "atmo",
-"license": "ISC",
-"dependencies": {
-{{{#isSocketEndpointAvailable}}}
-"socket.io": "^1.4.5",
-{{{/isSocketEndpointAvailable}}}
-{{{#isProxyEndpoints}}}
-"express-http-proxy": "^0.7.1",
-{{{/isProxyEndpoints}}}
-"express": "^4.13.4",
-"body-parser": "1.15.2"
-}
+    "name": "tool-api",
+    "version": "1.0.0",
+    "description": "Tool generated API",
+    "main": "index.js",
+    "scripts": {
+    "start": "node server.js"
+    },
+    "author": "toman",
+    "license": "ISC",
+    "dependencies": {
+    {{{#isSocketEndpointAvailable}}}
+    "socket.io": "^1.4.5",
+    {{{/isSocketEndpointAvailable}}}
+    {{{#isProxyEndpoints}}}
+    "express-http-proxy": "^0.7.1",
+    {{{/isProxyEndpoints}}}
+    "express": "^4.13.4",
+    "body-parser": "1.15.2"
+    }
 }
