@@ -34,7 +34,7 @@ Initialize toman plugin with the generated project, with the given options.
 
 ## Cut Picture
 
-![https://github.com/foliejs/toman/blob/master/example/toman.png]()
+<img src="https://github.com/foliejs/toman/blob/master/example/toman.png">
 
 
 
