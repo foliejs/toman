@@ -177,11 +177,11 @@ has-unicode@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/has-unicode/-/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9"
 
-inherits@2.0.1:
+inherits@2.0.1, inherits@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
 
-inherits@^2.0.3, inherits@~2.0.1:
+inherits@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
 
@@ -432,6 +432,16 @@ tmp@^0.0.29:
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.29.tgz#f25125ff0dd9da3ccb0c2dd371ee1288bb9128c0"
   dependencies:
     os-tmpdir "~1.0.1"
+
+"toman@git+https://github.com/foliejs/folie-cli.git":
+  version "1.0.3"
+  resolved "git+https://github.com/foliejs/folie-cli.git#32e690048c1433e742c83a80543f32f55bc0d823"
+  dependencies:
+    caporal "^0.5.0"
+    fs "^0.0.1-security"
+    mustache "^2.3.0"
+    path "^0.12.7"
+    toman "https://github.com/foliejs/folie-cli"
 
 "toman@https://github.com/foliejs/folie-cli":
   version "1.0.0"
