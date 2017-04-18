@@ -1,0 +1,59 @@
+'use strict'
+
+const fs = require('fs')
+const path = require('path')
+const config = require('config')
+const limbo = require('limbo')
+const mongoose = require('mongoose')
+const schemas = require('../schemas')(mongoose.Schema)
+const ilog = require('ilog')
+const Promise = require('bluebird')
+
+Promise.promisifyAll(mongoose.Model)
+Promise.promisifyAll(mongoose.Query.base)
+
+let dbOptions = {}
+if (config.tb_mongo.auth_db) {
+    dbOptions.auth = {
+    authdb: config.tb_mongo.auth_db
+}
+}
+
+if (config.tb_mongo.use_cert && config.tb_mongo.ca_path && config.tb_mongo.client_crt_path && config.tb_mongo.client_key_path) {
+let caFileBuf = fs.readFileSync(config.tb_mongo.ca_path)
+let certFileBuf = fs.readFileSync(config.tb_mongo.client_crt_path)
+let keyFileBuf = fs.readFileSync(config.tb_mongo.client_key_path)
+
+dbOptions.replset = {
+    sslCA: caFileBuf,
+    sslCert: certFileBuf,
+    sslKey: keyFileBuf
+    }
+}
+
+let db = limbo.use('pay', {
+    provider: 'mongo',
+    conn: mongoose.createConnection(config.tb_mongo.url, dbOptions),
+    schemas: schemas
+})
+
+let tb = limbo.use('teambition', {provider: 'rpc'})
+tb.on('error', function (error) {
+    error.class = 'limbo-error'
+    ilog.error(error)
+    throw error
+})
+
+tb.connect({
+    url: config.tb_mongo_rpc,
+    tls: {
+    cert: fs.readFileSync(path.resolve(__dirname, config.limbo.cert)),
+    key: fs.readFileSync(path.resolve(__dirname, config.limbo.key)),
+    rejectUnauthorized: false
+}
+}, function () {})
+
+module.exports = {
+    db: db,
+    tb: tb
+}

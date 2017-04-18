@@ -1,0 +1,21 @@
+'use strict'
+
+const config = require('config')
+const Router = require('koa-router')
+
+const router = new Router({
+    prefix: '/api/v1'
+})
+
+router.all('*', responseRendererMiddleware())
+
+
+
+// API 文档
+// /api/v1/doc
+router.get('/doc', function * (){
+    this.body = 'doc api'
+})
+
+
+module.exports = router
