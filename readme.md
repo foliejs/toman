@@ -47,8 +47,8 @@ Initialize toman plugin with the generated project, with the given options.
   │   ├── middleware/             # api middleware
   │   ├── schemas/                # database
   │   ├── services/               # third part service
-  │   ├── route                   # api routes
-  │   └── app.js/                 # backend entry point.
+  │   ├── route.js                # api routes
+  │   └── app.js                  # backend entry point.
   ├── node_modules/               # libraries and utilities
   ├── app.js                      # startup
   ├── package.json                # project pkg
