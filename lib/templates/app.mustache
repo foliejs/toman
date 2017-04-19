@@ -1,6 +1,7 @@
 'use strict'
+
 const config = require('config')
 const logger = require('ilog')
 const app = require('./lib/app')
 
-app.listen(config.port, () => logger.info(`teambition {{name}} system listen on ${config.port}`))
+app.listen(config.PORT, () => logger.info(`{{name}} system listen on ${config.PORT}`))
