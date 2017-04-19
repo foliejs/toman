@@ -4,9 +4,9 @@
    | |        | | | | \| |\/| |/  \/ _ \/   <|  \| |>   
   /| |\   .-,_| |_| |  | |  | |   / ___ \   U| |\  |u   
  u |_|U    \_)-\___/   |_|  |_|  /_/   \_\   |_| \_|    
- _// \\_        \\    <<,-,,-.    \\    >>   ||   \\,-. 
+ _// \\_        \\    <<,-,,-.    \\    >>   ||   \\,-.
 (__) (__)      (__)    (./  \.)  (__)  (__)  (_")  (_/                                                
-                                                      
+
 ```
 [![Build Status](https://travis-ci.org/SensitiveMix/node-cluster-email.svg?branch=master)](https://travis-ci.org/SensitiveMix/node-cluster-email)
 [![codecov](https://codecov.io/gh/SensitiveMix/node-cluster-email/branch/master/graph/badge.svg)](https://codecov.io/gh/SensitiveMix/node-cluster-email)
@@ -38,10 +38,34 @@ Initialize toman plugin with the generated project, with the given options.
 
 
 
-## License 
+## Server Directory Layout
+
+```shell
+├── config/                     # constant config
+│   locales/                    # string id translate
+│   pm2/                        # deploy script
+│   ├── 21.json                 # test script
+│   ├── ga.json                 # ga script
+│   └── release.json            # release script
+├── lib/                        # application source code
+│   ├── api/                    # api controller
+│   ├── middleware/             # api middleware
+│   ├── schemas/                # database
+│   ├── services/               # third part service
+│   ├── route                   # api routes
+│   └── app.js/                 # backend entry point.
+├── node_modules/               # libraries and utilities
+├── app.js                      # startup
+├── package.json                # project pkg
+├── skyfile.js                  # deploy script
+├── .gitignore                  # ignore file
+├── .gitlab-ci.yml              # ci test
+└── test/                       # Unit tests and test-cov
+```
+
+
+## License
 
 MIT License
 
 Copyright (c) 2017 Folie.js
-
-
