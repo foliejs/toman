@@ -14,6 +14,7 @@
     "log-symbols": "^1.0.2",
     "mustache": "^2.3.0",
     "path": "^0.12.7",
+    "shelljs": "^0.7.7",
     "toman": "git+https://github.com/foliejs/folie-cli.git"
   },
   "directories": {
