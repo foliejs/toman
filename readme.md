@@ -32,36 +32,36 @@ Initialize toman plugin with the generated project, with the given options.
   - `no-color` disable color
   - `quiet` quiet mode - only displays warn and error messages
 
+
+  ## Server Directory Layout
+
+  ```shell
+  ├── config/                     # constant config
+  │   locales/                    # string id translate
+  │   pm2/                        # deploy script
+  │   ├── 21.json                 # test script
+  │   ├── ga.json                 # ga script
+  │   └── release.json            # release script
+  ├── lib/                        # application source code
+  │   ├── api/                    # api controller
+  │   ├── middleware/             # api middleware
+  │   ├── schemas/                # database
+  │   ├── services/               # third part service
+  │   ├── route                   # api routes
+  │   └── app.js/                 # backend entry point.
+  ├── node_modules/               # libraries and utilities
+  ├── app.js                      # startup
+  ├── package.json                # project pkg
+  ├── skyfile.js                  # deploy script
+  ├── .gitignore                  # ignore file
+  ├── .gitlab-ci.yml              # ci test
+  └── test/                       # Unit tests and test-cov
+  ```
+
 ## Cut Picture
 
 <img src="https://github.com/foliejs/toman/blob/master/example/toman.png">
 
-
-
-## Server Directory Layout
-
-```shell
-├── config/                     # constant config
-│   locales/                    # string id translate
-│   pm2/                        # deploy script
-│   ├── 21.json                 # test script
-│   ├── ga.json                 # ga script
-│   └── release.json            # release script
-├── lib/                        # application source code
-│   ├── api/                    # api controller
-│   ├── middleware/             # api middleware
-│   ├── schemas/                # database
-│   ├── services/               # third part service
-│   ├── route                   # api routes
-│   └── app.js/                 # backend entry point.
-├── node_modules/               # libraries and utilities
-├── app.js                      # startup
-├── package.json                # project pkg
-├── skyfile.js                  # deploy script
-├── .gitignore                  # ignore file
-├── .gitlab-ci.yml              # ci test
-└── test/                       # Unit tests and test-cov
-```
 
 
 ## License
