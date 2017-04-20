@@ -16,7 +16,7 @@ A module for taking advantage of the built-in node project in node LTS according
 
 ## Installation
 ```bash
-npm install toman -g
+yarn global add toman
 ```
 
 
