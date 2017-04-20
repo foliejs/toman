@@ -26,7 +26,7 @@ Initialize toman plugin with the generated project, with the given options.
  Options:
 
   - `project` select project
-  - `type` select project
+  - `type` project type
   - `port` project port
   - `name` project name  
   - `h` display help
