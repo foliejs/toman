@@ -96,7 +96,7 @@ toman g api --name apiservice --port 10023
 
 ## Screenshot
 
-<img src="https://github.com/foliejs/toman/blob/master/example/toman.png">
+<img src="https://cloud.githubusercontent.com/assets/16094680/25217428/72430d46-25d9-11e7-9831-82cb88909ab5.png">
 
 
 
