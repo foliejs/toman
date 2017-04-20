@@ -58,7 +58,7 @@ Initialize toman plugin with the generated project, with the given options.
   └── test/                       # Unit tests and test-cov
   ```
 
-## Cut Picture
+## Screenshot
 
 <img src="https://github.com/foliejs/toman/blob/master/example/toman.png">
 
