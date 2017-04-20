@@ -1,0 +1,20 @@
+{
+  "front": {
+    "dir": [
+      {
+        "name": "pm2",
+        "files": [
+          "21.mustache",
+          "ga.mustache",
+          "release.mustache"
+        ]
+      },
+      {
+        "name": "config",
+        "files": [
+          "default.mustache"
+        ]
+      }
+    ]
+  }
+}

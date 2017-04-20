@@ -1,0 +1,104 @@
+const path = require("path")
+const webpack = require("webpack")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+
+const fontName = 'fonts/[name].[hash:8].[ext]'
+const svgoConfig = JSON.stringify({
+    plugins: [
+        {removeTitle: true},
+        {convertColors: {shorthex: false}},
+        {convertPathData: false}
+    ]
+})
+
+module.exports = {
+    context: path.resolve(__dirname, "../src"),
+
+    resolve: {
+        extensions: [
+            ".js",
+            ".tsx",
+            ".ts"
+        ],
+        modules: [
+            "./node_modules",
+            "./src"
+        ]
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                enforce: "pre",
+                loader: "tslint-loader",
+                include: [
+                path.resolve(__dirname, "../src")
+            ],
+            exclude: [
+                /node_modules/
+            ],
+            query: {
+                emitErrors: true,
+                formatter: "stylish"
+                }
+            },
+    {
+        test: /\.tsx?$/,
+        loaders: [
+            "react-hot-loader/webpack",
+            "ts-loader",
+        ],
+        include: [
+            path.resolve(__dirname, "../src")
+        ],
+        exclude: [
+            /node_modules/
+        ]
+    },
+    {
+        test: /\.woff((\?|#)[?#\w\d_-]+)?$/,
+        loader: 'url-loader',
+        query: {limit: 100, minetype: 'application/font-woff', name: fontName}
+    },
+    {
+        test: /\.woff2((\?|#)[?#\w\d_-]+)?$/,
+        loader: 'url-loader',
+        query: {limit: 100, minetype: 'application/font-woff2', name: fontName}
+    },
+    {
+        test: /\.ttf((\?|#)[?#\w\d_-]+)?$/,
+        loader: 'url-loader',
+        query: {limit: 100, minetype: 'application/octet-stream', name: fontName}
+    },
+    {
+        test: /\.eot((\?|#)[?#\w\d_-]+)?$/,
+        loader: 'url-loader',
+        query: {limit: 100, name: fontName}
+    },
+    {
+        test: /.*\.svg$/,
+        loaders: [
+        'file-loader',
+        'svgo-loader?' + svgoConfig
+         ]
+        }
+    ]
+},
+
+    plugins: [
+    new HtmlWebpackPlugin({
+    inject: true,
+    template: "./index.html"
+    }),
+
+    new webpack.DefinePlugin({
+        "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || 'production')
+    })],
+
+    performance: {
+        hints: false
+    },
+
+    target: "web"
+}

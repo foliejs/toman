@@ -26,14 +26,24 @@ Initialize toman plugin with the generated project, with the given options.
  Options:
 
   - `project` select project
+  - `type` select project
   - `port` project port
   - `name` project name  
   - `h` display help
   - `no-color` disable color
   - `quiet` quiet mode - only displays warn and error messages
+  
+## Example
+```bash
+// generate typescript webapp base on react
+toman g webapp --name web --port 10022
+
+// generate api service base koa1.0
+toman g api --name apiservice --port 10023
+```
 
 
-  ## Server Directory Layout
+## api Directory Layout
 
   ```shell
   ├── config/                     # constant config
@@ -51,6 +61,32 @@ Initialize toman plugin with the generated project, with the given options.
   │   └── app.js                  # backend entry point.
   ├── node_modules/               # libraries and utilities
   ├── app.js                      # startup
+  ├── package.json                # project pkg
+  ├── skyfile.js                  # deploy script
+  ├── .gitignore                  # ignore file
+  ├── .gitlab-ci.yml              # ci test
+  └── test/                       # Unit tests and test-cov
+  ```
+  
+## webapp Directory Layout
+
+  ```shell
+  ├── config/                     # constant config
+  │   pm2/                        # deploy script
+  │   ├── 21.json                 # test script
+  │   ├── ga.json                 # ga script
+  │   └── release.json            # release script
+  ├── src/                        # application source code
+  │   ├── app/                    # application config
+  │   ├── common.ts               # common ts
+  │   ├── global.d.js             # global varible
+  │   ├── index.html              # start page
+  │   ├── index.tsx               # start ts
+  │   └── style.ts                # style reference
+  ├── node_modules/               # libraries and utilities
+  ├── postcss.config.js           # post css cfg
+  ├── tsconfig.json               # ts cfg
+  ├── tslint.json                 # eslint standard
   ├── package.json                # project pkg
   ├── skyfile.js                  # deploy script
   ├── .gitignore                  # ignore file

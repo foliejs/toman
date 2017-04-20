@@ -1,0 +1,75 @@
+const path = require('path')
+const webpack = require('webpack')
+const webpackMerge = require('webpack-merge')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+
+const commonConfig = require('./webpack.common')
+
+module.exports = webpackMerge(commonConfig, {
+
+  devtool: 'inline-source-map',
+
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:10065',
+    'webpack/hot/only-dev-server',
+
+    './index'
+  ],
+
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '/'
+  },
+
+  devServer: {
+    hot: true,
+    historyApiFallback: true,
+    contentBase: path.resolve(__dirname, '../dist'),
+    publicPath: '/',
+    host: '0.0.0.0',
+    port: '10065',
+    stats: 'errors-only',
+    proxy: {
+      '/mock/api': {
+        target: 'http://localhost:3000',
+        pathRewrite: {'^/mock': ''}
+      },
+      '/api': 'http://localhost:10066'
+    }
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+        ]
+      },
+      {
+        test: /\.styl$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'stylus-loader'
+        ]
+      }
+    ]
+  },
+
+  plugins: [
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+
+    new webpack.DefinePlugin({
+      'FILE_HOST': '"http://striker.project.ci"',
+      'API_HOST': '"http://project.ci"',
+    })
+  ]
+
+})
