@@ -17,6 +17,8 @@
 A module for taking advantage of the built-in node project in node LTS according to auto generation config.
 
 ## Installation
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/foliejs/toman.svg)](https://greenkeeper.io/)
 ```bash
 yarn global add toman
 ```
