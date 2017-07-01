@@ -23,7 +23,7 @@ yarn global add toman
 
 ## Installation lastest version
 ```bash
-yarn global Upgrade toman
+yarn global upgrade toman
 ```
 
 
