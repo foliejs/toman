@@ -19,6 +19,11 @@ A module for taking advantage of the built-in node project in node LTS according
 yarn global add toman
 ```
 
+## Installation lastest version
+```bash
+yarn global Upgrade toman
+```
+
 
 ## Usage
 Initialize toman plugin with the generated project, with the given options.
@@ -32,7 +37,7 @@ Initialize toman plugin with the generated project, with the given options.
   - `h` display help
   - `no-color` disable color
   - `quiet` quiet mode - only displays warn and error messages
-  
+
 ## Example
 ```bash
 // generate typescript webapp base on react
@@ -67,7 +72,7 @@ toman g api --name apiservice --port 10023
   ├── .gitlab-ci.yml              # ci test
   └── test/                       # Unit tests and test-cov
   ```
-  
+
 ## webapp Directory Layout
 
   ```shell
