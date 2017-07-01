@@ -11,6 +11,8 @@
 [![Build Status](https://travis-ci.org/SensitiveMix/node-cluster-email.svg?branch=master)](https://travis-ci.org/SensitiveMix/node-cluster-email)
 [![codecov](https://codecov.io/gh/SensitiveMix/node-cluster-email/branch/master/graph/badge.svg)](https://codecov.io/gh/SensitiveMix/node-cluster-email)
 
+[![NPM](https://nodei.co/npm/toman.png?downloads=true&downloadRank=true)](https://nodei.co/npm/toman/)
+
 
 A module for taking advantage of the built-in node project in node LTS according to auto generation config.
 
