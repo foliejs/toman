@@ -79,6 +79,7 @@ toman g api --name apiservice --port 10023
 
   ```shell
   ├── config/                     # constant config
+  ├── mock/                       # mock test
   │   pm2/                        # deploy script
   │   ├── 21.json                 # test script
   │   ├── ga.json                 # ga script
@@ -93,7 +94,8 @@ toman g api --name apiservice --port 10023
   ├── node_modules/               # libraries and utilities
   ├── postcss.config.js           # post css cfg
   ├── tsconfig.json               # ts cfg
-  ├── tslint.json                 # eslint standard
+  ├── tsconfig.mock.json          # mock config
+  ├── tslint.json                 # eslint standard  
   ├── package.json                # project pkg
   ├── skyfile.js                  # deploy script
   ├── .gitignore                  # ignore file
