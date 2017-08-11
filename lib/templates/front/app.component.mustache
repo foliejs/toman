@@ -1,13 +1,17 @@
-export class App {
+import * as React from 'react'
+
+import { HomeContainer } from './home'
+
+export class App extends React.Component<{}, void> {
     constructor() {
-        // init
-    }
+    super()
+}
 
-    componentWillMount() {
-        // will mount
-    }
-
-    render() {
-        // page render
+render() {
+    return (
+        <div>
+            <HomeContainer />
+        </div>
+        )
     }
 }

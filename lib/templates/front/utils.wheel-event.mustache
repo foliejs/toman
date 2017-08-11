@@ -1,0 +1,10 @@
+export const preventBackgroundScroll = (e: React.WheelEvent<HTMLDivElement>) => {
+  const target = e.currentTarget
+  if (
+    (e.deltaY < 0 && target.scrollTop <= 0) ||
+    (e.deltaY > 0 && target.scrollHeight - target.clientHeight - target.scrollTop <= 0)
+  ) {
+    e.stopPropagation()
+    e.preventDefault()
+  }
+}

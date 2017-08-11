@@ -1,0 +1,10 @@
+import { $http } from './http'
+
+const $API_DEMO = '/demo'
+
+export const demo = () => {
+    return $http({
+        url: $API_DEMO,
+        method: 'get'
+    })
+}

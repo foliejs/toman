@@ -88,7 +88,7 @@ toman g api --name apiservice --port 10023
   │   ├── common.ts               # common ts
   │   ├── global.d.js             # global varible
   │   ├── index.html              # start page
-  │   ├── index.tsx               # start ts
+  │   ├── home.index.mustache               # start ts
   │   └── style.ts                # style reference
   ├── node_modules/               # libraries and utilities
   ├── postcss.config.js           # post css cfg

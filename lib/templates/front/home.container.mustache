@@ -1,0 +1,23 @@
+import * as React from 'react'
+
+import { Home } from './home.component'
+import { demo } from '../utils'
+
+export class HomeContainer extends React.PureComponent {
+  constructor() {
+    super()
+    this.state = {
+      message: ''
+    }
+  }
+
+  componentWillMount() {
+    demo().subscribe() // mock
+  }
+
+  render() {
+    return (
+      <Home />
+    )
+  }
+}

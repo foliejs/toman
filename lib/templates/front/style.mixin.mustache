@@ -1,0 +1,71 @@
+@import '~@teambition/clarity-design/lib/style/variables.styl'
+
+// font size
+$font-small = 12px
+$font-normal = 14px
+$font-medium = 16px
+$font-large = 18px
+$font-extra = 20px
+
+$text-ellipsis()
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+$scroll-bar()
+  &::-webkit-scrollbar
+    width: 7px
+  &::-webkit-scrollbar-button
+    display: none
+  &::-webkit-scrollbar-track-piece
+    background-color: $G50
+  &::-webkit-scrollbar-track
+    display: none
+  &::-webkit-scrollbar-thumb
+    background-color: $G70
+
+$arrow-up($top, $left, $color)
+  content: ''
+  position: absolute
+  top: $top
+  left: $left
+  width: 0
+  height: 0
+  border-top: 7px solid transparent
+  border-left: 7px solid transparent
+  border-right: 7px solid transparent
+  border-bottom: 7px solid $color
+
+$input()
+  padding: 10px 12px
+  height: 40px
+  opacity: 0.9
+  border-radius: 4px
+  background-color: $white
+  border: 1px solid $G70
+  outline: none
+  box-sizing: border-box
+  transition: border-color 0.3s
+
+  &:focus
+    border-color: $G80
+
+$avatar()
+  width: 28px
+  height: 28px
+  border-radius: 50%
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+
+  &:focus
+    border-color: $G80
+
+::-webkit-input-placeholder
+  color: #ccc
+:-moz-placeholder
+  color: #ccc
+::-moz-placeholder
+  color: #ccc
+:-ms-input-placeholder
+  color: #ccc

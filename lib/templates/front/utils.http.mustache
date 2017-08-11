@@ -1,0 +1,27 @@
+import { Observable } from 'rxjs/Observable'
+
+const qs = require('query-string')
+
+const url = (process.env.NODE_ENV === 'production' ? '' : '/mock') + '/api/v1'
+
+const config = {
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json; charset=utf-8'
+  }
+}
+
+export const $http = (options) => {
+  const search = options.query ?
+    `?${qs.stringify({
+      ...options.query
+    })}` : ''
+  return Observable.ajax({
+    ...config,
+    ...options,
+    url: url + options.url + search
+  })
+    .map((value) => {
+      return value.response
+    })
+}
