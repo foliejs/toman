@@ -45,7 +45,7 @@ Initialize toman plugin with the generated project, with the given options.
 // generate typescript webapp base on react
 toman g webapp --name web --port 10022
 
-// generate api service base koa1.0
+// generate api service base on koa1.0
 toman g api --name apiservice --port 10023
 ```
 
